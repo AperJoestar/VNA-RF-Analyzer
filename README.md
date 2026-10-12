@@ -133,4 +133,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-[MIT](LICENSE) — replace the placeholder name in the license file with your own before publishing.
+[Anushavan Nahapetyan](LICENSE) — replace the placeholder name in the license file with your own before publishing.
