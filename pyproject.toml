@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rf-analyzer"
+dynamic = ["version"]
+description = "Desktop app for comparing VNA S11/S21 sweeps against a baseline across frequency zones and markers."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["vna", "rf", "s-parameters", "swr", "absorber", "tkinter", "matplotlib"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: X11 Applications",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "numpy>=1.22",
+    "pandas>=1.5",
+    "scipy>=1.8",
+    "matplotlib>=3.5",
+    "Pillow>=9.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+rf-analyzer = "rfanalyzer.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.dynamic]
+version = { attr = "rfanalyzer.__version__" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+extend-exclude = ["examples"]
+
+[tool.ruff.lint]
+# The GUI code keeps the compact style of the original script (one-line ifs, semicolons), so only real errors
+# (syntax errors, undefined names, unused imports/variables ...) are enforced.
+select = ["E9", "F"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/rfanalyzer/gui/mixins/__init__.py" = ["F401"]

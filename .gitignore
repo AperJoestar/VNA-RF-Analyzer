@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# Tooling
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Editors / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Files the app creates in the working directory
+exports/
+Pics/
+rf_analyzer_settings.json
+
+# Your own measurement logs dropped in the repo root (the bundled samples live in examples/)
+/*.csv
