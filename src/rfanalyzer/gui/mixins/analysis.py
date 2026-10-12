@@ -26,7 +26,7 @@ class AnalysisMixin:
         elif "Phase Trace" in choice:
             lbl_high, lbl_low, mode_unit, ref_line = ("Max", "Min", "deg", 0.0)
         else:
-            lbl_high, lbl_low, mode_unit, ref_line = ("Max", "Min", "Ratio Factor", 1.0)
+            mode_unit, ref_line = ("Ratio Factor", 1.0)
 
         zones = self.read_zones()
         if not zones: return
